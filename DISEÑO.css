@@ -1,0 +1,539 @@
+ html {
+    box-sizing: border-box; /* Hack para Box Model */
+    scroll-snap-type: y mandatory;
+}
+
+ body {
+            padding-top: 70px; /* Ajuste para evitar que el contenido quede oculto debajo del menú */
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+        }
+
+        /* Header section */
+        header {
+            background: url('pngtree-background-elegant-black-with-gold-line-side-3-image_901637.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 600px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+        }
+
+        header h1 {
+            font-size: 300px;
+            margin: 0;
+            font-family: SIMPLE PLANNER;
+            font-weight: 700;
+            text-shadow: 5px 5px 5px blue;
+
+        }
+
+        header h2 {
+            font-size: 50px;
+            margin: 0;
+            font-family: Dreamy Notes Script;
+            font-weight: 100;
+        }
+
+        .index-button {
+            margin-top: 40px;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            background-color: #4e54c8;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .index-button:hover {
+            background-color: #8f94fb;
+        }
+
+/* Índice section */
+#indice {
+    max-width: 700px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    text-align: left;
+}
+
+.indice-left {
+    font-family: 'SIMPLE PLANNER';
+    font-size: 100px;
+    font-weight: bold;
+    opacity: 0;
+    transform: scale(0.8); /* Inicialmente más pequeño */
+    animation: zoomIn 1.5s ease forwards; /* Animación de zoom */
+}
+
+.indice-left h1 {
+
+    font-family: 'SIMPLE PLANNER';
+    font-size: 180px;
+    font-weight: bold;
+    max-width: 700px;
+    margin: 0 auto;
+    transform: translate( -20%, 5%); /* Centra el texto exactamente */
+}
+
+/* Animación para las palabras "ÍNDICE DE CONTENIDO" */
+@keyframes zoomIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.8); /* Empieza pequeño */
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1); /* Escala normal al finalizar */
+    }
+}
+
+/* Animación de deslizamiento para los elementos de la lista */
+.indice-right {
+    list-style-type: none;
+    padding: 0;
+    font-size: 1.5em;
+    line-height: 1.8; /* Espaciado entre líneas ajustado */
+    max-width: 600px; /* Limitar el ancho del contenido */
+    animation: fadeIn 1s ease-in-out;
+}
+
+.indice-right li {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #333;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: slideIn 0.8s ease-out forwards;
+    animation-delay: calc(0.2s * var(--i));
+}
+
+.indice-right li span {
+    font-size: 30px;
+    font-weight: bold;
+    margin-right: 20px;
+}
+
+.indice-right li a {
+    text-decoration: none;
+    color: #333;
+    flex-grow: 1;
+}
+
+.indice-right li a:hover {
+    text-decoration: underline;
+}
+
+/* Animación de desvanecimiento para la lista */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes slideFadeIn {
+    0% {
+        opacity: 0;
+        transform: translateX(-50px); /* Desplazado hacia la izquierda */
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0); /* Posición normal */
+    }
+}
+
+#sobre-mi {
+    background-color: #111;
+    color: #fff;
+    padding: 100px 100px;
+    display: flex;
+    justify-content: center;
+    opacity: 0;
+    animation: slideFadeIn 1.5s ease-out forwards; /* Animación de 1.5s */
+}
+
+.contenido-sobre-mi {
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    gap: 100px;
+}
+
+/* Texto de la sección */
+.texto-sobre-mi h1 {
+    font-family: 'SIMPLE PLANNER';
+    font-size: 150px;
+    margin: 0 auto;
+}
+
+.texto-sobre-mi h1 span {
+    font-family: 'Dreamy Notes Script';
+    display: block;
+    font-size: 40px;
+    text-align: left;
+}
+
+.texto-sobre-mi p {
+    font-size: 1.2rem;
+    opacity: 0;
+    animation: slideFadeIn 2s ease-out forwards;
+    animation-delay: 1.2s; /* Inicia un poco después del título */
+}
+
+/* Imagen de la sección */
+.imagen-sobre-mi img {
+    width: 400px;
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
+    opacity: 0;
+    animation: slideFadeIn 2s ease-out forwards;
+    animation-delay: 1.5s; /* Inicia después del texto */
+}
+/* Estilo responsivo */
+@media (max-width: 768px) {
+    .contenido-sobre-mi {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .texto-sobre-mi {
+        margin-bottom: 30px;
+    }
+
+    .imagen-sobre-mi img {
+        width: 80%;
+        max-width: 100px;
+    }
+}
+/* Estilos para el menú de navegación superior */
+  #menu {
+            background-color: #333;
+            padding: 10px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            opacity: 0; /* Inicialmente invisible */
+            transform: translateY(-20px); /* Comienza con una ligera elevación */
+            animation: slideIn 0.8s forwards; /* Animación al aparecer */
+        }
+
+        @keyframes slideIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        #menu ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: space-around; /* Espacia los elementos del menú */
+        }
+
+        #menu li {
+            margin: 0;
+        }
+
+        #menu a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            transition: background-color 0.3s ease;
+        }
+
+        #menu a:hover {
+            background-color: #4e54c8; /* Color al pasar el mouse */
+        }
+
+        #menu ul li {
+            margin: 0 20px;
+        }
+
+        #menu ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 1.2em;
+            transition: color 0.3s ease;
+        }
+
+        #menu ul li a:hover {
+            color: #4e54c8;
+        }
+
+
+#habilidades-f {
+    background-color: #000000;
+    color: #000000;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: left;
+}
+
+.contenido-habilidadesf {
+    animation: fadeIn 1s ease-in-out; /* Animación de entrada */
+}
+
+.contenido-habilidadesf h1 {
+    font-family: 'SIMPLE PLANNER';
+    font-size: 100px; /* Tamaño de encabezado */
+    font-weight: bold;
+    text-align: center; /* Centra el título */
+    color: #ffffff; /* Texto blanco */
+}
+
+.lista-habilidadesf {
+    list-style-type: none; /* Sin viñetas */
+    padding: 0;
+    font-size: 1.5em;
+    line-height: 1.8; /* Espaciado entre líneas */
+    color: #ffffff; /* Texto blanco para la lista */
+}
+
+.lista-habilidadesf li {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: slideIn 0.8s ease-out forwards; /* Animación de entrada */
+}
+
+.lista-habilidadesf li span {
+    font-size: 30px;
+    font-weight: bold;
+    margin-right: 20px;
+    color: #ffffff; /* Texto blanco para los números */
+}
+
+#habilidades-blandas {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: left;
+    background-color: #f4f4f4; /* Fondo claro */
+}
+
+.contenido-habilidades {
+    animation: fadeIn 1s ease-in-out; /* Animación de entrada */
+}
+
+.contenido-habilidades h1 {
+    font-family: 'SIMPLE PLANNER';
+    font-size: 100px; /* Tamaño de encabezado */
+    font-weight: bold;
+    text-align: center; /* Centra el título */
+}
+
+.lista-habilidades {
+    list-style-type: none; /* Sin viñetas */
+    padding: 0;
+    font-size: 1.5em;
+    line-height: 1.8; /* Espaciado entre líneas */
+}
+
+.lista-habilidades li {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: slideIn 0.8s ease-out forwards; /* Animación de entrada */
+}
+
+.lista-habilidades li span {
+    font-size: 30px;
+    font-weight: bold;
+    margin-right: 20px;
+}
+
+/* Animaciones */
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+.container {
+    display: flex;
+    justify-content: center; /* Centra las imágenes horizontalmente */
+    align-items: center; /* Centra las imágenes verticalmente si es necesario */
+    gap: 100px;
+    margin: 60px auto;
+    max-width: 1200px;
+}
+
+.portrait {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    flex-direction: column;
+    opacity: 0; /* Empieza invisible */
+    transform: translateY(20px); /* Comienza más abajo */
+    animation: fadeInUp 1s ease-out forwards; /* Añade la animación */
+    animation-delay: 0.3s; /* Opcional: retraso para hacer la animación más fluida */
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px); /* Empieza más abajo */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); /* Termina en su lugar */
+    }
+}
+
+.portrait img {
+    width: 300px;
+    height: 400px;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto; /* Esto asegura que si se cambia de tamaño, permanezca centrada */
+}
+
+.text {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+h2 {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+p {
+    font-size: 14px;
+}
+
+.artistic .text {
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.fashion .text {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.blackwhite .text {
+    background-color: rgba(0, 0, 0, 0.5);
+    
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .portrait img {
+        width: 100%;
+        height: auto;
+    }
+}
+.container2 {
+display: grid;
+    grid-template-columns: repeat(2, 100fr); /* Dos columnas de igual tamaño */
+    grid-template-rows: repeat(2, 0.6fr); /* Filas más pequeñas para que las imágenes sean más anchas */
+    gap: 50px;
+    width: 100%; /* Se adapta al espacio restante */
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Contenedor de la galería */
+.gallery-container {
+    display: flex;
+    align-items: stretch; /* Asegura que el contenido de la galería se estire */
+    justify-content: center;
+    height: 90vh; /* La altura total menos el menú de navegación */
+
+    background-color: black;
+}
+
+
+.image-item img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    border: 5px solid #000;
+}
+
+/* Estilo para el título lateral */
+.side-title {
+    writing-mode: vertical-rl;
+    text-align: center;
+    background-color: #000;
+    padding: 10px;
+    height: 100%;
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-left: 5px solid white;
+}
+
+.side-title h1 {
+    font-size: 100px;
+    color: white;
+    font-weight: 700;
+    letter-spacing: 5px;
+    font-family: SIMPLE PLANNER;
+    transform: rotate(180deg); /* Gira el texto para que coincida con el diseño */
+    margin: 0;
+    opacity: 0; /* Empieza invisible */
+    transform: translateY(20px); /* Comienza más abajo */
+    animation: fadeInUp 1s ease-out forwards; /* Añade la animación */
+    animation-delay: 0.3s; /* Opcional: retraso para hacer la animación más fluida */
+}
+
+
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 1em;
+        }
